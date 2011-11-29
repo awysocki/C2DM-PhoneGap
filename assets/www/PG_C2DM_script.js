@@ -17,6 +17,7 @@ window.onbeforeunload  =  function(e) {
 
 
 //$(document).bind("mobileinit", function() {
+//alert( 'Starting...');
 
 	$("#app-status-ul").append( '<li>Mobileinit event received' );
 
