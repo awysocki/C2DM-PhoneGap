@@ -23,7 +23,7 @@ C2DM.prototype.register = function(senderEmail, eventCallback, successCallback, 
 		return;
 	}
 	
-    return PhoneGap.exec(successCallback,    	//Callback which will be called when directory listing is successful
+    return cordova.exec(successCallback,    	//Callback which will be called when directory listing is successful
     					failureCallback,     	//Callback which will be called when directory listing encounters an error
     					'C2DMPlugin',  			//Telling PhoneGap that we want to run "DirectoryListing" Plugin
     					'register',             //Telling the plugin, which action we want to perform
@@ -36,7 +36,7 @@ C2DM.prototype.register = function(senderEmail, eventCallback, successCallback, 
 C2DM.prototype.unregister = function( successCallback, failureCallback ) {
 
 	
-    return PhoneGap.exec(successCallback,    	//Callback which will be called when directory listing is successful
+    return cordova.exec(successCallback,    	//Callback which will be called when directory listing is successful
     					failureCallback,     	//Callback which will be called when directory listing encounters an error
     					'C2DMPlugin',  			//Telling PhoneGap that we want to run "DirectoryListing" Plugin
     					'unregister',             //Telling the plugin, which action we want to perform
@@ -49,12 +49,7 @@ C2DM.prototype.unregister = function( successCallback, failureCallback ) {
  */
 
 
-PhoneGap.addConstructor(function() {
+cordova.addConstructor(function() {
 	//Register the javascript plugin with PhoneGap
-	PhoneGap.addPlugin('C2DM', new C2DM());
-	
-	//Register the native class of plugin with PhoneGap
-	PluginManager.addService("C2DMPlugin","com.plugin.C2DM.C2DMPlugin");
-	
-	//alert( "added Service C2DMPlugin");
+	cordova.addPlugin('C2DM', new C2DM());
 });

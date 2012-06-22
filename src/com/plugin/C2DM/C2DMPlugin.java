@@ -12,6 +12,7 @@ package com.plugin.C2DM;
 // http://www.vogella.de/articles/AndroidCloudToDeviceMessaging/article.html
 //--------------------------------------------------------
 
+import org.apache.cordova.api.PluginResult.Status;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +22,6 @@ import android.util.Log;
 import com.google.android.c2dm.C2DMessaging;
 import com.phonegap.api.Plugin;
 import com.phonegap.api.PluginResult;
-import com.phonegap.api.PluginResult.Status;
 
 
 /**
@@ -65,7 +65,7 @@ public class C2DMPlugin extends Plugin {
 				
 				Log.v(ME + ":execute", "ECB="+gECB+" EMail="+gEMail );
 				
-				C2DMessaging.register(this.ctx, gEMail);
+				C2DMessaging.register(this.ctx.getApplicationContext(), gEMail);
 
 				
 				Log.v(ME + ":execute", "C2DMessaging.register called ");
@@ -80,7 +80,7 @@ public class C2DMPlugin extends Plugin {
 		}
 		else if (UNREGISTER.equals(action)) {
 			
-			C2DMessaging.unregister(this.ctx);
+			C2DMessaging.unregister(this.ctx.getApplicationContext());
 			Log.v(ME + ":" + UNREGISTER, "C2DMessaging.unregister called ");
 			
 		}
@@ -102,13 +102,5 @@ public class C2DMPlugin extends Plugin {
  	   	gwebView.sendJavascript( _d );
 	}
 
-
-	/**
-	 * Gets the Directory listing for file, in JSON format
-	 * @param file The file for which we want to do directory listing
-	 * @return JSONObject representation of directory list. e.g {"filename":"/sdcard","isdir":true,"children":[{"filename":"a.txt","isdir":false},{..}]}
-	 * @throws JSONException
-	 */
-	
 	
 }
