@@ -1,8 +1,8 @@
 package com.phonegap.c2dm;
 
-//import android.app.Activity;
+import org.apache.cordova.DroidGap;
+
 import android.os.Bundle;
-import com.phonegap.*;
 
 public class App extends DroidGap {
 		
