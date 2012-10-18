@@ -19,9 +19,10 @@ import org.json.JSONObject;
 import android.util.Log;
 
 import com.google.android.c2dm.C2DMessaging;
-import com.phonegap.api.Plugin;
-import com.phonegap.api.PluginResult;
-import com.phonegap.api.PluginResult.Status;
+
+import org.apache.cordova.api.Plugin;
+import org.apache.cordova.api.PluginResult;
+import org.apache.cordova.api.PluginResult.Status;
 
 
 /**
@@ -65,7 +66,8 @@ public class C2DMPlugin extends Plugin {
 				
 				Log.v(ME + ":execute", "ECB="+gECB+" EMail="+gEMail );
 				
-				C2DMessaging.register(this.ctx, gEMail);
+				
+				C2DMessaging.register( cordova.getActivity().getApplicationContext() , gEMail);
 
 				
 				Log.v(ME + ":execute", "C2DMessaging.register called ");
@@ -80,7 +82,7 @@ public class C2DMPlugin extends Plugin {
 		}
 		else if (UNREGISTER.equals(action)) {
 			
-			C2DMessaging.unregister(this.ctx);
+			C2DMessaging.unregister(cordova.getActivity().getApplicationContext() );
 			Log.v(ME + ":" + UNREGISTER, "C2DMessaging.unregister called ");
 			
 		}

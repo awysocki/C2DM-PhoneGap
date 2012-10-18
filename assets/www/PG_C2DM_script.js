@@ -9,15 +9,13 @@ window.onbeforeunload  =  function(e) {
 		if ( gApp.c2dmregid.length > 0 )
 		{
 			// The same routines are called for success/fail on the unregister. You can make them unique if you like
-			window.plugins.C2DM.unregister( C2DM_Success, C2DM_Fail );			// close the C2DM 
+			window.C2DM.unregister( C2DM_Success, C2DM_Fail );			// close the C2DM 
 		
 		}
 };
 
 
 
-//$(document).bind("mobileinit", function() {
-//alert( 'Starting...');
 
 	$("#app-status-ul").append( '<li>Mobileinit event received' );
 
@@ -40,13 +38,11 @@ window.onbeforeunload  =  function(e) {
 		// CHANGE: your_c2dm_account@gmail.com
 		// TO: what ever your C2DM authorized email account name is
 		//
-		window.plugins.C2DM.register("your_c2dm_account@gmail.com", "C2DM_Event", C2DM_Success, C2DM_Fail );
+		window.C2DM.register("your_c2dm_account@gmail.com", "C2DM_Event", C2DM_Success, C2DM_Fail );
 		
 	}, false );
 	
 	
-//});
-
 function 
 C2DM_Event(e)
 {

@@ -1,0 +1,4 @@
+This is the last update to this project.  As Google is no longer supporting the C2DM code and everybody must move on to GCM.
+
+The final update is to PhoneGap 2.1 (cordova-2.1.0) 
+It has not fully been tested but does compile and does receive errors back from Google
